@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Sanjeevan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp", "top": -150, "left": 150, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot_ph", "top": 50, "left": -200, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot_tds", "top": 200, "left": -200, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot_turb", "top": 350, "left": -200, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "temp:GND", "esp:GND.1", "black", [ "v30", "h-50" ] ],
+    [ "temp:DQ", "esp:4", "green", [ "v50", "h-70" ] ],
+    [ "temp:VDD", "esp:3V3", "red", [ "v-40", "h-260" ] ],
+    [ "pot_ph:VCC", "esp:3V3", "red", [ "v-30", "h100" ] ],
+    [ "pot_ph:SIG", "esp:34", "green", [ "v20", "h120" ] ],
+    [ "pot_ph:GND", "esp:GND.2", "black", [ "v40", "h100" ] ],
+    [ "pot_tds:VCC", "esp:3V3", "red", [ "v-180", "h80" ] ],
+    [ "pot_tds:SIG", "esp:35", "green", [ "v20", "h140" ] ],
+    [ "pot_tds:GND", "esp:GND.2", "black", [ "v60", "h120" ] ],
+    [ "pot_turb:VCC", "esp:3V3", "red", [ "v-330", "h60" ] ],
+    [ "pot_turb:SIG", "esp:32", "green", [ "v20", "h160" ] ],
+    [ "pot_turb:GND", "esp:GND.2", "black", [ "v80", "h140" ] ],
+    [ "temp:VCC", "esp:3V3", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
